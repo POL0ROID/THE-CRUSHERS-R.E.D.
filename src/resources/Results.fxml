@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="530.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ResultsController">
+   <children>
+      <Label layoutX="87.0" layoutY="86.0" text="Results">
+         <font>
+            <Font size="28.0" />
+         </font>
+      </Label>
+      <BarChart fx:id="bc" layoutX="39.0" layoutY="126.0" prefHeight="312.0" prefWidth="505.0">
+        <xAxis>
+          <CategoryAxis fx:id="candidates" side="BOTTOM" />
+        </xAxis>
+        <yAxis>
+          <NumberAxis fx:id="numVotes" side="LEFT" upperBound="0.0" />
+        </yAxis>
+      </BarChart>
+      <Button layoutX="235.0" layoutY="447.0" mnemonicParsing="false" onAction="#resultsTabulate" text="=&gt;" />
+   </children>
+</AnchorPane>

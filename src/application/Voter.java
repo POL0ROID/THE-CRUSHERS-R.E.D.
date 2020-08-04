@@ -1,6 +1,6 @@
 package application;
 import java.util.*;
-/**
+/*
  * The Voter class is passed
  * 1) the list of candidates in order
  * 2) how they each were ranked
@@ -13,12 +13,12 @@ import java.util.*;
  * the candidate with the lowest totVotes is eliminated,
  * (setting "eliminated" to "true"),
  * we go down the ArrayList<voter> to find people whose nth preferences have all been eliminated,
- * and increment their n+1th preferences' totVotes by 1. 
- * @author William Paul Baker
+ * and increment their n+1th preferences' totVotes by 1.
  */
 public class Voter {
-	ArrayList<Candidate> candidates;
-	ArrayList<Integer> ranking;
+	public ArrayList<Candidate> candidates;
+	public ArrayList<Integer> ranking;
+	Voter(){}
 	Voter(ArrayList<Candidate> candidates, ArrayList<Integer> ranking){
 		this.candidates = candidates;
 		this.ranking = ranking;
