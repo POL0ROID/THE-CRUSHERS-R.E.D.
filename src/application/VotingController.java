@@ -31,13 +31,10 @@ public class VotingController implements Initializable{
 	String password;
 	String instructions;
 	String after;
-	public void initData(String password, ArrayList<Candidate> candidates, ArrayList<Voter> votes){
+	public void initData(String password, ArrayList<Candidate> candidates, ArrayList<Voter> votes, String instructions, String after){
 		this.password = password;
 		this.candidates = candidates;
 		this.votes = votes;
-	}
-	public void backData(String password, ArrayList<Candidate> candidates, ArrayList<Voter> votes, String instructions, String after){
-		initData(password, candidates, votes);
 		this.instructions = instructions;
 		this.after = after;
 	}
@@ -103,8 +100,9 @@ public class VotingController implements Initializable{
 				votes.add(vote);
 				Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
 				try {
-					FXMLLoader loader = new FXMLLoader(getClass().getResource("/password.fxml"));
-					mainPane = loader.load();
+					FXMLLoader loader = new FXMLLoader();
+					FileInputStream stream = new FileInputStream(new File("src/resources/password.fxml"));
+					mainPane = loader.load(stream);
 					Scene scene = new Scene(mainPane);
 					window.setScene(scene);
 					passwordController pcon = loader.getController();
