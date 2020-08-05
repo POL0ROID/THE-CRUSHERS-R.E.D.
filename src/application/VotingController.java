@@ -10,6 +10,7 @@ import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 
@@ -30,6 +31,9 @@ public class VotingController implements Initializable{
 	@FXML
 	AnchorPane mainPane;
 
+	@FXML
+	Text t = new Text();
+
 
 	//Lists holding the candidates and rankings
 	public static ArrayList<Candidate> candidates = new ArrayList<Candidate>();
@@ -43,6 +47,7 @@ public class VotingController implements Initializable{
 		this.password = password;
 		this.instructions = instructions;
 		this.after = after;
+		t.setText(instructions);
 	}
 
 

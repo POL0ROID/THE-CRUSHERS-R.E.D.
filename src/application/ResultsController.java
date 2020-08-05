@@ -7,6 +7,7 @@ import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.BarChart;
 import javafx.scene.chart.XYChart;
 import javafx.event.*;
+import javafx.collections.*;
 
 /* ResultsController populates and displays the results graph,
  * iterates through rounds,
@@ -27,38 +28,24 @@ public class ResultsController {
 		@FXML
         XYChart.Series<String, Number> xychart = new XYChart.Series<String, Number>();
 
-		ArrayList<Voter> votes;
-		ArrayList<Candidate> candidates;
 		ArrayList<Integer> totVotes;
 
 		static int roundNum = 1;
 
-		public void initData(ArrayList<Candidate> candidates, ArrayList<Voter> votes){
-			this.candidates = candidates;
-			this.votes = votes;
-			round();
-		}
 		public void round() {
 	        bc.setTitle("Round 1");
-	        resultsSetup(candidates, votes);
-		    for(int i=0; i < candidates.size(); i++){
-		        	xychart.getData().add(new XYChart.Data<String, Number>(candidates.get(i).name,
-		        			candidates.get(i).totVotes));
+	        bc.setAnimated(false);
+	        for(Candidate c : Main.model.getCandidates())
+	        Candidates.getCategories().add(c.name);
+	        Main.model.resultsSetup();
+		    for(int i=0; i < Main.model.getCandidates().size(); i++){
+		        	xychart.getData().add(new XYChart.Data<String, Number>
+		        	(Main.model.getCandidates().get(i).name,
+		        			Main.model.getCandidates().get(i).totVotes));
 		    }
+
 		    bc.getData().add(xychart);
 		}
-  	public void resultsSetup(ArrayList<Candidate> candidates, ArrayList<Voter> votes) {
-  		for (Voter v: votes)
-  			for(int j=0; j < v.ranking.size(); j++){
-  				if(v.ranking.get(j)==1)
-  					candidates.get(j).totVotes++;
-  				System.out.println(candidates.get(j).name);
-  				System.out.println(candidates.get(j).totVotes);
-   			}
-  		for(Voter w: votes)
-  			System.out.println(w.ranking);
-			//the above line helps us keep track of our input data!
-  	}
   	//The below function should be called when an administrator hits the next round button.
   	public void resultsTabulate(ActionEvent event) {
   		++roundNum;

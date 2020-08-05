@@ -23,6 +23,21 @@ public class Model {
 	public boolean isEmpty(){
 		return candidates.isEmpty();
 	}
+	public ArrayList<Candidate> getCandidates(){
+		return candidates;
+	}
+ 	public void resultsSetup() {
+  		for (Voter v: votes)
+  			for(int j=0; j < v.ranking.size(); j++){
+  				if(v.ranking.get(j)==1)
+  					candidates.get(j).totVotes++;
+  				System.out.println(candidates.get(j).name);
+  				System.out.println(candidates.get(j).totVotes);
+   			}
+  		for(Voter w: votes)
+  			System.out.println(w.ranking);
+			//the above line helps us keep track of our input data!
+  	}
   	/*
   	 * Below this line, I'm not sure is algorithmically correct,
   	 * however, it is for fringe cases of complicated ties in the data,

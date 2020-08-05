@@ -91,9 +91,10 @@ public class passwordController {
 			Scene scene = new Scene(mainPane);
 			//pane you are on
 			Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
-			loader.getController();
+			ResultsController rc = loader.getController();
 			window.setScene(scene);
 			window.show();
+			rc.round();
 		}
 		else{
 			Alert deny = new Alert(Alert.AlertType.ERROR, "INCORRECT PASSWORD: please allow an administrator to continue.");
