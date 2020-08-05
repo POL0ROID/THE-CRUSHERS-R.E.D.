@@ -2,7 +2,7 @@
 Database program and vote interface for administering ranked-choice elections.
 
 Ranked Choice Election Database v0.9.9
-by THE CRUSHERS (Emma Yanoviak and William Baker "Polo Sepulveda")
+by THE CRUSHERS (Emma Yanoviak and team leader William Baker "Polo Sepulveda")
 
 
 Known (significant) bugs:
