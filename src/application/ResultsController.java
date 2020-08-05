@@ -57,7 +57,6 @@ public class ResultsController {
 	  			System.out.println(w.ranking);
 				//the above line helps us keep track of our input data!
 	  	}
-}
 
 	  	/* As of v0.9.9 (Final),
 	  	 * Below this line is a very inaccurate and incomplete vote tabulation algorithm.
@@ -67,7 +66,7 @@ public class ResultsController {
 	  	 * It does not function, and as such is not fully annotated.
 	  	 * It is being left in to demonstrate the concept.
 	  	 */
-/*
+
 	  	//The below function should be called when an administrator hits the next round button.
   	public void resultsTabulate(ActionEvent event) {
   		++roundNum;
@@ -173,12 +172,12 @@ public class ResultsController {
   		 * try to find
   		 * and increase their totVotes by 1.
   		 */
-/*
+
 		for(Voter w: votes) {
   			for(int k=0; k < lowtie.size(); k++) {
 				for(int r=roundNum+1; r < lowtie.size(); r++) {
 					for(int s=0; s < w.ranking.size(); s++) {
-						if(w.ranking.get(s) == r
+						if(w.ranking.get(s) == r)
 
 							lowtie.get(s).totVotes++;
 					}
@@ -187,4 +186,3 @@ public class ResultsController {
 		}
   	}
 }
-*/
